@@ -27,7 +27,7 @@ def test_pridani_2ks_zbozi_do_kosiku(page: Page):
     odkaz_international.click()
 
     # kontrola otevření stránky shop pomocí URL
-    assert "https://eu.amonamarth.shop/en/" in page.url, f"Není otevřená správná URL shopu. Aktuální URL: {page.url}"
+    assert "https://eu.amonamarth.shop/en/" in page.url, f"Není otevřená správná URL obchodu. Aktuální URL: {page.url}"
 
     # otevření konkrétního produktu
     zbozi_k_nakupu = page.get_by_role("link", name="zipper--we-rule-the-waves")
