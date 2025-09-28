@@ -41,13 +41,13 @@ def test_pridani_2ks_zbozi_do_kosiku(page: Page):
     except Exception:
         raise AssertionError("Nadpis produktu 'Zipper - We Rule The Waves' není vidět.")
 
-    # krátký wait před klikem na velikost L
+    # krátký wait před klikem na velikost XL
     page.wait_for_timeout(500)
-    velikost_L = page.get_by_text("L", exact=True)
+    velikost_L = page.get_by_text("XL", exact=True)
     velikost_L.scroll_into_view_if_needed()
     velikost_L.click(force=True)
     page.wait_for_timeout(500)  # čekáme na update třídy
-    assert "active" in velikost_L.get_attribute("class"), "Velikost L produktu se neaktivovala po kliknutí."
+    assert "active" in velikost_L.get_attribute("class"), "Velikost XL produktu se neaktivovala po kliknutí."
 
     # krátký wait před klikem na +
     page.wait_for_timeout(500)
@@ -114,4 +114,3 @@ def test_prihlaseni_neregistrovaneho_uzivatele(page: Page):
     popup.wait_for(state="visible", timeout=10000)
     assert popup.is_visible(), "Popup hláška se nezobrazila"
     assert "Please add an item first" in popup.inner_text(), f"Neočekávaný popup: {popup.inner_text()}"
-
